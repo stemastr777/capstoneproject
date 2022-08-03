@@ -8,7 +8,7 @@ st.title('Batubara menyebabkan kenaikan Harga Listrik Sektor Rumah Tangga Tahun 
 st.subheader('\nTren naik pada harga listrik sektor rumah tangga pada tahun 2016-2021 di Jawa Tengah')
 
 # harga_listrik
-df_listrik = pd.read_excel("D:\TetrisProgram\Capstone Project\harga_listrik.xlsx")
+df_listrik = pd.read_excel("Capstone Project/harga_listrik.xlsx")
 df_listrik['tahun'] = df_listrik.loc[:,'tahun'].astype('str')
 
 
@@ -31,7 +31,7 @@ st.write(
 # bahan_bakar_listrik
 st.subheader('Batubara merupakan bahan bakar pembangkit listrik yang paling berpengaruh')
 
-df_bahanbakar = pd.read_excel('D:\TetrisProgram\Capstone Project\\bahanbakar_pembangkit_listrik.xlsx')
+df_bahanbakar = pd.read_excel('Capstone Project/bahanbakar_pembangkit_listrik.xlsx')
 fig1, ax1 = plt.subplots(figsize=(5,6))
 fig1.set_facecolor('white')
 ax1.set_title('Komposisi Penggunaan Bahan Bakar Pembangkit Listrik\nTahun 2020 di Indonesia', fontsize=15)
@@ -42,7 +42,7 @@ plt.tight_layout()
 
 
 # harga_batubara
-df_coal = pd.read_excel('D:\TetrisProgram\Capstone Project\harga_batubara.xlsx')
+df_coal = pd.read_excel('Capstone Project/harga_batubara.xlsx')
 df_coal['tahun'] = df_coal['tahun'].astype('str')
 df_coal_mean = df_coal.groupby('tahun')['harga'].mean().reset_index()
 
@@ -67,7 +67,7 @@ tahun 2020, mengalahkan minyak dan gas.
 # jumlah_pengguna
 st.subheader('Jumlah listrik yang didistribusikan dapat menjadi \'bom waktu\'')
 
-df_pengguna = pd.read_excel("D:\TetrisProgram\Capstone Project\jumlah_pengguna.xlsx")
+df_pengguna = pd.read_excel("Capstone Project/jumlah_pengguna.xlsx")
 df_pengguna = df_pengguna.loc[df_pengguna['unit'].isin(['Semarang','Surakarta','Pekalongan','Magelang','Purwokerto'])]
 df_pengguna['tahun'] = df_pengguna['tahun'].astype('str')
 df_pengguna['jumlah_energi'] = df_pengguna['jumlah_energi']/1000000
