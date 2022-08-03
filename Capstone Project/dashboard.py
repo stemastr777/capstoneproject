@@ -5,8 +5,8 @@ import streamlit as st
 import seaborn as sns
 
 # Opening
-st.title('Batubara menyebabkan kenaikan Harga Listrik Sektor Rumah Tangga di Jawa Tengah')
-st.subheader('Tren naik pada harga listrik sektor rumah tangga pada tahun 2016-2021 di Jawa Tengah')
+st.title('Batubara menyebabkan kenaikan Harga Listrik Sektor Rumah Tangga Tahun 2016-2021 di Jawa Tengah')
+st.subheader('\nTren naik pada harga listrik sektor rumah tangga pada tahun 2016-2021 di Jawa Tengah')
 
 # harga_listrik
 df_listrik = pd.read_excel("D:\TetrisProgram\Capstone Project\harga_listrik.xlsx")
@@ -15,8 +15,8 @@ df_listrik['tahun'] = df_listrik.loc[:,'tahun'].astype('str')
 
 fig, ax = plt.subplots(figsize=(8,4))
 sns.lineplot(data=df_listrik, x='tahun', y='harga', hue='wilayah', ax=ax)
-ax.set_title('Nilai Rp/KWh Listrik Rumah Tangga di Jawa Tengah menurut unit PLN', fontsize=15, loc='center', pad=15)
-plt.ylabel('Harga listrik (Rp/KWh)')
+ax.set_title('Grafik Harga Listrik Sektor Rumah Tangga di Jawa Tengah', fontsize=15, loc='center', pad=15)
+plt.ylabel('Rp/kWh')
 plt.grid(color='gray', linewidth=0.5, linestyle=':')
 plt.ylim(ymin=0)
 plt.tight_layout()
@@ -25,7 +25,9 @@ st.pyplot(fig)
 st.write(
     '''Berdasarkan data harga listrik pada 5 kota yang terletak di Jawa Tengah, 
     data menunjukkan bahwa harga listrik mengalami tren naik selama 2016-2021. Meskipun sempat turun pada 
-    tahun 2020, harga listrik kembali mengalami kenaikan pada tahun 2021.''')
+    tahun 2020, harga listrik kembali mengalami kenaikan pada tahun 2021.\n\n Ada banyak faktor yang mempengaruhi
+    kenaikan ini, seperti kebijakan pemerintah, kondisi perekonomian dunia, dll. Projek ini akan berfokus pada bahan bakar
+    yang digunakan untuk membangkitkan listrik.''')
 
 # bahan_bakar_listrik
 st.subheader('Batubara merupakan bahan bakar pembangkit listrik yang paling berpengaruh')
@@ -47,8 +49,8 @@ df_coal_mean = df_coal.groupby('tahun')['harga'].mean().reset_index()
 
 fig2 = plt.figure(figsize=(8,4))
 sns.lineplot(data=df_coal_mean, x='tahun', y='harga')
-plt.title('Harga Rata-Rata Batubara per Ton(dalam USD)', fontsize=15, pad=10, loc='center')
-plt.ylabel('Harga batubara (USD/ton)')
+plt.title('Harga Rata-Rata Batubara', fontsize=15, pad=10, loc='center')
+plt.ylabel('USD/ton')
 plt.grid(color='gray', linewidth=0.5, linestyle=':')
 plt.ylim(ymin=0)
 
@@ -60,7 +62,8 @@ with graf1:
 
 st.write('''Pada tahun 2017 dan 2021, harga batubara meningkat. Pada tahun tersebut pula, harga listrik di kelima 
 kota di Jawa Tengah meningkat. Hal ini menunjukkan bahwa batubara mempengaruhi harga listrik. Hal ini diperkuat 
-oleh data di sebelah kiri. Batubara menyumbang lebih dari setengah dari keseluruhan bahan bakar pembangkit listrik.
+oleh data di sebelah kiri. \n\nBatubara menyumbang lebih dari setengah dari keseluruhan bahan bakar pembangkit listrik pada
+tahun 2020, mengalahkan minyak dan gas.
 ''')
 # jumlah_pengguna
 st.subheader('Jumlah listrik yang didistribusikan dapat menjadi \'bom waktu\'')
@@ -77,6 +80,6 @@ plt.ylabel('jumlah energi yang terjual(juta KWh)')
 plt.grid(linewidth=0.5, linestyle=":", color='darkgray')
 st.pyplot(fig3)
 st.write('''Batubara merupakan salah satu jenis bahan bakar fosil yang berarti bisa habis. Sementara itu, jumlah 
-distribusi listrik ke depannya diprediksi semakin bertambah seiring bertambahnya jumlah penduduk.\n\nMaka dari itu,
-pemerintah harus segera mencari sumber energi alternatif yang lebih efisien dan murah agar harga listrik tidak menjadi
-gangguan bagi masyarakat.''')
+distribusi listrik ke depannya diprediksi semakin bertambah seiring bertambahnya jumlah penduduk. Hal ini diprediksi
+berdasarkan grafik di atas.
+\n\nMaka dari itu,pemerintah harus segera mencari sumber energi alternatif yang lebih efisien dan murah.''')
