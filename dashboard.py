@@ -5,7 +5,6 @@ import seaborn as sns
 import openpyxl
 
 # Opening
-st.title('Batubara menyebabkan kenaikan Harga Listrik Sektor Rumah Tangga Tahun 2016-2021 di Jawa Tengah')
 st.subheader('\nTren naik pada harga listrik sektor rumah tangga pada tahun 2016-2021 di Jawa Tengah')
 
 # harga_listrik
