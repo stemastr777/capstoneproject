@@ -97,7 +97,7 @@ berdasarkan grafik di atas.''')
 
 # pembangkit_listrik
 st.subheader('Pengalihan PLTG Menjadi PLTGU Merupakan Solusi Jangka Pendek')
-df_pl = pd.read_excel('D:\TetrisProgram\Capstone Project\Pembangkit_listrik.xlsx')
+df_pl = pd.read_excel('Capstone Project/Pembangkit_listrik.xlsx')
 
 fig4 = plt.figure(figsize=(8,4))
 sns.barplot(data=df_pl, x='tahun', y='energi', hue='jenis')
