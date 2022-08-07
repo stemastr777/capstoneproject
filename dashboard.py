@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import openpyxl
-from PIL import Image
+import PIL
 
 # Opening
 st.title('Batubara dan Minyak Bumi Menyebabkan Harga Listrik di Indonesia Meningkat')
@@ -42,7 +42,7 @@ plt.grid(color='gray', linewidth=0.5, linestyle=':')
 plt.ylim(ymin=0)
 
 st.subheader('\nHarga Batubara dan Minyak Bumi Mengalami Tren Naik')
-image = Image.open("Capstone Project/harga_minyak.png")
+image = PIL.Image.open("Capstone Project/harga_minyak.png")
 hb1, hb2 = st.columns(2)
 with hb1:
     st.pyplot(bb)
