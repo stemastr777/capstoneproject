@@ -64,6 +64,7 @@ ax.set_title('Grafik Harga Listrik Sektor Rumah Tangga di Jawa Tengah', fontsize
 plt.ylabel('Rp/kWh')
 plt.grid(color='gray', linewidth=0.5, linestyle=':')
 plt.ylim(ymin=0)
+plt.legend(loc="upper right",bbox_to_anchor=(1.27,1))
 plt.tight_layout()
 st.pyplot(fig)
 
