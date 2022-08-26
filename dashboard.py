@@ -58,7 +58,7 @@ st.subheader('\nTren naik pada harga listrik sektor rumah tangga')
 df_listrik = pd.read_excel("Capstone Project/harga_listrik.xlsx")
 df_listrik['tahun'] = df_listrik.loc[:,'tahun'].astype('str')
 
-fig, ax = plt.subplots(figsize=(8,4))
+fig, ax = plt.subplots(figsize=(8,3.5))
 sns.lineplot(data=df_listrik, x='tahun', y='harga', hue='wilayah', ax=ax)
 ax.set_title('Grafik Harga Listrik Sektor Rumah Tangga di Jawa Tengah', fontsize=15, loc='center', pad=15)
 plt.ylabel('Rp/kWh')
@@ -75,6 +75,29 @@ st.write(
     yang digunakan untuk membangkitkan listrik.''')
 
 
+# pembangkit_listrik
+st.subheader('Pengalihan PLTG Menjadi PLTGU Merupakan Solusi Jangka Pendek')
+df_pl = pd.read_excel('Capstone Project/Pembangkit_listrik.xlsx')
+
+fig4 = plt.figure(figsize=(8,4))
+sns.barplot(data=df_pl, x='tahun', y='energi', hue='jenis')
+plt.title('Jumlah Energi yang Dihasilkan\nMenurut Jenis Pembangkit Listrik', fontsize=15, pad=10)
+plt.legend(loc='upper right', bbox_to_anchor=(1.2, 1), shadow=True)
+
+pl1, pl2 = st.columns([2,1])
+image2 = PIL.Image.open("Capstone Project/kualitas_bahanbakar.png")
+with pl1:
+    st.pyplot(fig4)
+with pl2:
+    st.image(image2)
+
+st.write('''
+    Dilansir dari "https://web.pln.co.id/statics/uploads/2021/04/Statistik-Indonesia-2020-unaudited.pdf", 
+    terdapat 66 PLTG dan 79 PLTGU yang ada di Indonesia. Pengalihan PLTG menjadi PLTGU bisa meningkatkan efisiensi
+    penggunaan minyak bumi. Hal tersebut juga bisa membantu menyeimbangkan harga listrik akibat adanya lonjakan
+    harga suatu jenis bahan bakar. Namun, hal ini hanya bersifat sementara.
+''')
+
 # jumlah_pengguna
 st.subheader('Jumlah listrik yang didistribusikan dapat menjadi \'bom waktu\'')
 
@@ -82,7 +105,7 @@ df_pengguna = pd.read_excel("Capstone Project/jumlah_pengguna.xlsx")
 df_pengguna['tahun'] = df_pengguna['tahun'].astype('str')
 df_pengguna['jumlah'] = df_pengguna['jumlah']/1000000
 
-fig3 = plt.figure(figsize=(8,4))
+fig3 = plt.figure(figsize=(8,3.5))
 sns.lineplot(data=df_pengguna, x='tahun', y='jumlah')
 plt.title('Jumlah Listrik yang Didistribusikan di Indonesia\n Periode 2012-2020', fontsize=15)
 plt.ylim(ymin=0)
@@ -94,23 +117,6 @@ st.pyplot(fig3)
 st.write('''Batubara dan minyak bumi merupakan salah satu jenis bahan bakar fosil yang berarti bisa habis. Sementara itu, jumlah 
 distribusi listrik ke depannya diprediksi semakin bertambah seiring bertambahnya jumlah penduduk. Hal ini diprediksi
 berdasarkan grafik di atas.''')
-
-# pembangkit_listrik
-st.subheader('Pengalihan PLTG Menjadi PLTGU Merupakan Solusi Jangka Pendek')
-df_pl = pd.read_excel('Capstone Project/Pembangkit_listrik.xlsx')
-
-fig4 = plt.figure(figsize=(8,4))
-sns.barplot(data=df_pl, x='tahun', y='energi', hue='jenis')
-plt.title('Jumlah Energi yang Dihasilkan\nMenurut Jenis Pembangkit Listrik', fontsize=15, pad=10)
-plt.legend(loc='upper right', bbox_to_anchor=(1.2, 1), shadow=True)
-st.pyplot(fig4)
-
-st.write('''
-    Dilansir dari "https://web.pln.co.id/statics/uploads/2021/04/Statistik-Indonesia-2020-unaudited.pdf", 
-    terdapat 66 PLTG dan 79 PLTGU yang ada di Indonesia. Pengalihan PLTG menjadi PLTGU bisa meningkatkan efisiensi
-    penggunaan minyak bumi. Hal tersebut juga bisa membantu menyeimbangkan harga listrik akibat adanya lonjakan
-    harga suatu jenis bahan bakar. Namun, hal ini hanya bersifat sementara.
-''')
 
 # Closing
 st.write('''
