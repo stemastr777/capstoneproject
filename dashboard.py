@@ -6,7 +6,7 @@ import openpyxl
 import PIL
 
 # Opening
-st.title('Batubara dan Minyak Bumi Menyebabkan Harga Listrik di Indonesia Meningkat')
+st.title('Konversi PLTG menjadi PLTGU adalah solusi dari masalah kenaikan harga listrik di Indonesia')
 
 
 #komposisi_bahanbakar
